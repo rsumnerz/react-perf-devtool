@@ -1,7 +1,8 @@
-const React = require('../../extension/third_party/react')
+const React = require('../../extension/dependencies/react')
 
 const Table = require('./Table')
 
+// Cache for performance measures
 let cache = []
 
 function getComponentAndPhaseName(measure) {
@@ -334,6 +335,7 @@ class ReactPerfPanel extends React.Component {
     )
   }
 
+  // Reload.
   reload = () => {
     this.clear()
     chrome.devtools.inspectedWindow.reload()

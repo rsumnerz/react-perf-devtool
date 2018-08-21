@@ -1,4 +1,4 @@
-const React = require('../../extension/third_party/react')
+const React = require('../../extension/dependencies/react')
 
 const TableHeader = require('./TableHeader');
 const ComponentView = require('./ComponentView');
