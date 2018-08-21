@@ -1,9 +1,3 @@
 .DS_Store
 node_modules
 extension/build
-trash
-yarn-error.log
-extension.crx
-extension.zip
-extension.pem
-lib

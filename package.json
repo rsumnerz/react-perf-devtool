@@ -1,15 +1,16 @@
 {
-  "name": "react-perf-devtool",
-  "version": "3.0.8",
-  "description": "A devtool for inspecting the performance of React Components",
+  "name": "react-perf-panel",
+  "version": "1.0.0",
+  "description": "A performance panel devtool for React",
   "main": "index.js",
-  "types": "index.d.ts",
-  "files": ["src", "lib"],
+  "files": [
+    "index.js",
+    "build"
+  ],
   "author": "Nitin Tulswani",
   "license": "MIT",
-  "peerDependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+  "dependencies": {
+    "react": "^16.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -19,36 +20,14 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "husky": "^0.14.3",
+    "babel-preset-react-app": "^3.1.0",
     "jest": "^21.2.1",
-    "lint-staged": "^6.0.0",
-    "prettier": "^1.9.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-test-renderer": "^16.2.0",
+    "regenerator-runtime": "^0.11.1",
     "uglifyjs-webpack-plugin": "^1.1.2",
-    "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.9"
+    "webpack": "^3.10.0"
   },
   "scripts": {
-    "test": "jest",
-    "build:hook":
-      "rm -rf ./extension/build && NODE_ENV=production ./node_modules/.bin/webpack-cli --config ./webpack/webpack.config.hook.js --progress",
-    "build:watch":
-      "rm -rf ./extension/build && NODE_ENV=production ./node_modules/.bin/webpack-cli --watch --config ./webpack/webpack.config.js --progress",
-    "build":
-      "rm -rf ./extension/build && NODE_ENV=production ./node_modules/.bin/webpack-cli --config ./webpack/webpack.config.js --progress",
-    "precommit": "lint-staged",
-    "format":
-      "find src -name '*.js' | xargs ./node_modules/.bin/prettier --write --no-semi --single-quote",
-    "generate":
-      "yarn build && rm -rf ./extension/extension.zip && zip -r ./extension/extension.zip ./extension",
-    "build:extension": "yarn format && yarn test && yarn generate"
-  },
-  "lint-staged": {
-    "*.{js,json}": [
-      "./node_modules/.bin/prettier --write --no-semi --single-quote",
-      "git add"
-    ]
+    "test": "jest --watch",
+    "build": "rm -rf ./extension/build && NODE_ENV=production ./node_modules/.bin/webpack --config ./webpack.config.js --progress"
   }
 }
